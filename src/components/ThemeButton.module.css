@@ -1,0 +1,9 @@
+.button {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+}
+
+.icon {
+  color: var(--color-text-base);
+}

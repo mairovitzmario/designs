@@ -1,5 +1,50 @@
+@import 'tailwindcss';
 
-@import "tailwindcss";
+/* Light Mode */
+:root {
+  /* Backgrounds */
+  --color-bg-base: #fdfbfb;
+  --color-bg-surface: #ffffff;
+  --color-bg-muted: #f4f0f2;
+
+  /* Typography */
+  --color-text-base: #4a4453;
+  --color-text-muted: #8b8396;
+
+  /* Pastel Accents */
+  --color-primary: #ffc4d9; /* Soft Pink */
+  --color-secondary: #d6c4ff; /* Lavender */
+  --color-tertiary: #c4e8ff; /* Baby Blue */
+  --color-success: #c4ffde; /* Mint Green */
+  --color-warning: #ffebc4; /* Butter Yellow */
+
+  /* Borders & Shadows */
+  --color-border: #eee8ed;
+  --shadow-sm: 0 2px 8px rgba(74, 68, 83, 0.05);
+}
+
+/* Dark Mode */
+:root[data-theme='dark'] {
+  /* Backgrounds */
+  --color-bg-base: #1c1924;
+  --color-bg-surface: #252230;
+  --color-bg-muted: #2f2a3d;
+
+  /* Typography */
+  --color-text-base: #fcfafc;
+  --color-text-muted: #a69fb0;
+
+  /* Pastel Accents (Slightly boosted saturation for dark backgrounds) */
+  --color-primary: #ffb0cc; /* Warm Rose */
+  --color-secondary: #c5a8ff; /* Soft Violet */
+  --color-tertiary: #a8dfff; /* Clear Sky */
+  --color-success: #a8ffd1; /* Bright Mint */
+  --color-warning: #ffe1a8; /* Warm Sand */
+
+  /* Borders & Shadows */
+  --color-border: #383347;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
 
 * {
   box-sizing: border-box;
@@ -13,5 +58,5 @@ body,
 
 body {
   margin: 0;
+  background-color: var(--color-bg-base);
 }
-
