@@ -2,6 +2,11 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider, createRouter } from '@tanstack/react-router'
 import { routeTree } from './routeTree.gen'
 
+// fonts
+import '@fontsource-variable/jetbrains-mono/wght.css'
+import '@fontsource-variable/orbitron/wght.css'
+import '@fontsource/share-tech-mono/400.css'
+
 const router = createRouter({
   routeTree,
   defaultPreload: 'intent',

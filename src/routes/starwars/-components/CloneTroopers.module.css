@@ -1,0 +1,159 @@
+.wrapper {
+  height: 100dvh;
+  height: 100vh;
+  width: 100%;
+  color: white;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  overflow: hidden;
+}
+
+.trooper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50% 35%;
+  height: 140dvh;
+  pointer-events: none;
+  user-select: none;
+}
+
+.name-wrapper {
+  width: 50%;
+  position: absolute;
+  bottom: 2%;
+  left: 10px;
+  overflow-x: hidden;
+}
+
+.name {
+  font-size: 8rem;
+  font-weight: bold;
+  font-family: var(--font-orbitron);
+  letter-spacing: 1rem;
+  line-height: 1;
+  color: rgb(255, 255, 255);
+  padding-bottom: 0.15em;
+  padding-left: 0.5rem;
+}
+
+.description-block-shadow {
+  position: absolute;
+  right: 2%;
+  bottom: 5%;
+  width: 35%;
+  height: 90%;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: url('../-assets/chrome.webp');
+  background-blend-mode: difference;
+  clip-path: polygon(
+    38% 2.5%,
+    62% 2.5%,
+    68% 0,
+    97.5% 0,
+    100% 2.5%,
+    100% 97.5%,
+    97.5% 100%,
+    2.5% 100%,
+    0 97.5%,
+    0 2.5%,
+    2.5% 0,
+    32% 0
+  );
+}
+
+.description-block {
+  width: 95%;
+  height: 96%;
+  padding: 8% 6%;
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+  background-color: rgba(255, 255, 255, 1);
+
+  clip-path: polygon(
+    38% 2.5%,
+    62% 2.5%,
+    68% 0,
+    97.5% 0,
+    100% 2.5%,
+    100% 98.5%,
+    98.5% 100%,
+    1.5% 100%,
+    0 98.5%,
+    0 2.5%,
+    2.5% 0,
+    32% 0
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  & h2 {
+    font-size: 4rem;
+    line-height: 0.8;
+    color: var(--trooper-color);
+    font-family: var(--font-orbitron);
+    margin-bottom: 1.2rem;
+  }
+
+  & h3 {
+    font-size: 0.9rem;
+    color: rgba(26, 26, 26, 0.9);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 3rem;
+  }
+
+  & p {
+    margin: 0;
+    padding-right: 1rem;
+    line-height: 1.6;
+    color: #333;
+    font-size: 1rem;
+  }
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  & button {
+    width: 50px;
+    height: 50px;
+    border-radius: 20px;
+    background: #ffffff;
+    box-shadow:
+      inset -2.5px -2.5px 10px #898989,
+      inset 2.5px 2.5px 10px #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      /* Adds a subtle outer shadow to make it look like it's lifting off the page */
+      box-shadow:
+        inset -2.5px -2.5px 10px #898989,
+        inset 2.5px 2.5px 10px #ffffff,
+        0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      /* Deepens and reverses the inset shadow for a realistic "pressed" button effect */
+      box-shadow:
+        inset -2.5px -2.5px 10px #cbcbcb,
+        inset 2.5px 2.5px 10px #c6c6c6;
+
+      transform: translateY(1px);
+    }
+
+    & > * {
+      color: #0000008f;
+    }
+  }
+}

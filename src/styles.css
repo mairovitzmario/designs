@@ -2,6 +2,11 @@
 
 /* Light Mode */
 :root {
+  /* fonts */
+  --font-orbitron: 'Orbitron Variable', sans-serif;
+  --font-jetbrains: 'JetBrains Mono Variable', monospace;
+  --font-share-tech: 'Share Tech Mono', monospace;
+
   /* Backgrounds */
   --color-bg-base: #fdfbfb;
   --color-bg-surface: #ffffff;
@@ -59,4 +64,17 @@ body,
 body {
   margin: 0;
   background-color: var(--color-bg-base);
+  font-family: var(--font-jetbrains);
+}
+
+h1 {
+  font-size: 8rem;
+  font-weight: bolder;
+  color: var(--color-text-base);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    font-size: 5rem;
+  }
 }

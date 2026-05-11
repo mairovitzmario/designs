@@ -1,0 +1,41 @@
+:root {
+  --color-starwars-logo: #fbe518;
+}
+
+.starry-sky {
+  background-color: black;
+  background-image:
+    radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 4px),
+    radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 2px),
+    radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 4px),
+    radial-gradient(
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.1) 2px,
+      transparent 3px
+    );
+  background-size:
+    550px 550px,
+    350px 350px,
+    250px 250px,
+    150px 150px;
+  background-position:
+    0 0,
+    40px 60px,
+    130px 270px,
+    70px 100px;
+}
+
+.glassmorphism {
+  border-radius: 50px;
+  backdrop-filter: blur(20px);
+
+  background-color: color-mix(
+    in srgb,
+    var(--glass-color, #ffffff) 60%,
+    transparent
+  );
+
+  box-shadow:
+    inset -14px -14px 28px #5a5a5a,
+    inset 14px 14px 28px #ffffff;
+}

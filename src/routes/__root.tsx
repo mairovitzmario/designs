@@ -4,7 +4,6 @@ import { TanStackDevtools } from '@tanstack/react-devtools'
 
 import '../styles.css'
 import { ThemeProvider } from '#/context/theme.tsx'
-import ThemeButton from '#/components/ThemeButton.tsx'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -13,7 +12,6 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <ThemeProvider>
-      <ThemeButton />
       <Outlet />
       <TanStackDevtools
         config={{
