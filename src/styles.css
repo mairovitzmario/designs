@@ -73,6 +73,10 @@ h1 {
   color: var(--color-text-base);
 }
 
+button:hover {
+  cursor: pointer;
+}
+
 @media (max-width: 600px) {
   h1 {
     font-size: 5rem;

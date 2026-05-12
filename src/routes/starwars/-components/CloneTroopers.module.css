@@ -19,81 +19,84 @@
   height: 140dvh;
   pointer-events: none;
   user-select: none;
+  mask-image: linear-gradient(to bottom, black 50%, transparent 80%);
 }
 
 .name-wrapper {
   width: 50%;
   position: absolute;
-  bottom: 2%;
+  bottom: 50%;
+  translate: 0 50%;
   left: 10px;
   overflow-x: hidden;
 }
 
 .name {
-  font-size: 8rem;
+  font-size: 12rem;
   font-weight: bold;
   font-family: var(--font-orbitron);
   letter-spacing: 1rem;
   line-height: 1;
-  color: rgb(255, 255, 255);
   padding-bottom: 0.15em;
   padding-left: 0.5rem;
-}
 
+  color: #ffffff36;
+}
 .description-block-shadow {
   position: absolute;
   right: 2%;
-  bottom: 5%;
+  bottom: 15%;
   width: 35%;
-  height: 90%;
-  background-color: rgba(255, 255, 255, 0.6);
+  height: 70%;
+}
+
+.notch {
+  background-color: var(--trooper-color);
   background-image: url('../-assets/chrome.webp');
-  background-blend-mode: difference;
-  clip-path: polygon(
-    38% 2.5%,
-    62% 2.5%,
-    68% 0,
-    97.5% 0,
-    100% 2.5%,
-    100% 97.5%,
-    97.5% 100%,
-    2.5% 100%,
-    0 97.5%,
-    0 2.5%,
-    2.5% 0,
-    32% 0
-  );
+  background-blend-mode: hard-light;
+  width: 40%;
+  height: 20%;
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  translate: -50% 0;
 }
 
 .description-block {
-  width: 95%;
-  height: 96%;
-  padding: 8% 6%;
+  width: 100%;
+  height: 100%;
+  padding: 10% 6%;
+  padding-bottom: 4%;
   position: absolute;
-  top: 2.5%;
-  left: 2.5%;
-  background-color: rgba(255, 255, 255, 1);
 
+  background: #e0e0e0;
+  box-shadow:
+    inset -8px -8px 10px #6b6b6b,
+    inset 10px 10px 14px #ffffff;
+
+  border-radius: 0 0 25px 25px;
   clip-path: polygon(
-    38% 2.5%,
-    62% 2.5%,
+    38% 5%,
+    62% 5%,
     68% 0,
-    97.5% 0,
-    100% 2.5%,
-    100% 98.5%,
-    98.5% 100%,
-    1.5% 100%,
-    0 98.5%,
-    0 2.5%,
-    2.5% 0,
+    95% 0,
+    100% 5%,
+    100% 100%,
+    0 100%,
+    0 5%,
+    5% 0,
     32% 0
   );
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
+  & > div {
+    overflow-y: scroll;
+  }
+
   & h2 {
-    font-size: 4rem;
+    font-size: 4.2rem;
     line-height: 0.8;
     color: var(--trooper-color);
     font-family: var(--font-orbitron);
@@ -135,7 +138,6 @@
     justify-content: center;
 
     &:hover {
-      /* Adds a subtle outer shadow to make it look like it's lifting off the page */
       box-shadow:
         inset -2.5px -2.5px 10px #898989,
         inset 2.5px 2.5px 10px #ffffff,
@@ -144,7 +146,6 @@
     }
 
     &:active {
-      /* Deepens and reverses the inset shadow for a realistic "pressed" button effect */
       box-shadow:
         inset -2.5px -2.5px 10px #cbcbcb,
         inset 2.5px 2.5px 10px #c6c6c6;

@@ -1,4 +1,5 @@
 export type TrooperListType = {
+  id: number
   name: string
   description: string
   commander: string
@@ -8,6 +9,7 @@ export type TrooperListType = {
 
 const trooperList: TrooperListType = [
   {
+    id: 0,
     name: '501st Legion',
     description:
       'An elite military division of the Grand Army of the Republic. Known for their bravery, unconventional tactics, and unwavering loyalty to their Jedi General, Anakin Skywalker, and Clone Captain Rex.',
@@ -16,6 +18,7 @@ const trooperList: TrooperListType = [
     color: '#1F61B5', // 501st Blue
   },
   {
+    id: 1,
     name: '212th Battalion',
     description:
       'A highly decorated military unit distinguished by their orange armor markings. Led by Jedi General Obi-Wan Kenobi and Clone Commander Cody, they specialize in large-scale frontal assaults, sieges, and textbook military precision.',
@@ -24,6 +27,7 @@ const trooperList: TrooperListType = [
     color: '#E56B1F', // 212th Orange
   },
   {
+    id: 2,
     name: 'The Wolfpack',
     description:
       'The 104th Battalion is a specialized unit known for its resilience, grim determination, and close-knit brotherhood. Commanded by Jedi Master Plo Koon and Clone Commander Wolffe, they sport distinctive grey armor.',
@@ -32,6 +36,7 @@ const trooperList: TrooperListType = [
     color: '#8A8C8E', // Wolfpack Grey
   },
   {
+    id: 3,
     name: 'Coruscant Guard',
     description:
       'Elite clone shock troopers tasked with maintaining order on the capital world of Coruscant. Under the command of Clone Commander Fox, they serve as peacekeepers, VIP escorts, riot control, and prison guards.',

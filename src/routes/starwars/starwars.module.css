@@ -3,7 +3,7 @@
 }
 
 .starry-sky {
-  background-color: black;
+  background-color: rgb(17, 17, 17);
   background-image:
     radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 4px),
     radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 2px),

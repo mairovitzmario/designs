@@ -8,11 +8,12 @@ export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null)
   const { scrollYProgress } = useScroll({ target: containerRef })
   const scaleLogo = useTransform(scrollYProgress, [0, 1], [1, 10])
-  const opacityLogo = useTransform(scrollYProgress, [0, 1], [1, 0])
+
   const opacityHeading = useTransform(scrollYProgress, [0, 0.1], [1, 0])
+  const opacityStars = useTransform(scrollYProgress, [0, 1], [0, 1])
   const backgroundColor = useTransform(
     scrollYProgress,
-    [0, 0.6],
+    [0, 0.2],
     ['rgba(0, 0, 0, 0.5)', 'rgba(0, 0, 0, 1)'],
   )
 
@@ -20,11 +21,15 @@ export default function Hero() {
     <div ref={containerRef} className={styles['scroll-hero']}>
       <div className={styles['hero']}>
         <motion.div
-          className={`${styles['overlay']} ${genericStyles['starry-sky']}`}
+          style={{ opacity: opacityStars }}
+          className={`absolute top-0 left-0 w-full h-full z-2 ${genericStyles['starry-sky']}`}
+        ></motion.div>
+        <motion.div
+          className={`${styles['overlay']}`}
           style={{ backgroundColor: backgroundColor }}
         >
           <motion.img
-            style={{ scale: scaleLogo, opacity: opacityLogo }}
+            style={{ scale: scaleLogo }}
             className={styles['logo']}
             src="/starwars/logo.svg"
             alt="Star Wars"
