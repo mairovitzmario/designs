@@ -10,7 +10,6 @@ import trooperList from '../-data'
 export default function CloneTroopers() {
   const [selectedIndex, setSelectedIndex] = useState(0)
   const ref = useRef(null)
-  const isInView = useInView(ref, { amount: 0.5 })
 
   const trooper = trooperList[selectedIndex]
 

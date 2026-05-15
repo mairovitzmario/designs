@@ -2,53 +2,57 @@
 
 /* Light Mode */
 :root {
-  /* fonts */
+  /* Original Fonts */
   --font-orbitron: 'Orbitron Variable', sans-serif;
   --font-jetbrains: 'JetBrains Mono Variable', monospace;
   --font-share-tech: 'Share Tech Mono', monospace;
 
-  /* Backgrounds */
-  --color-bg-base: #fdfbfb;
+  /* Anthropic-Style Fonts */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-serif: 'Lora', 'Merriweather', 'Tiempos Text', Georgia, serif;
+
+  /* Backgrounds: Warm, paper-like off-whites */
+  --color-bg-base: #f5f4f0;
   --color-bg-surface: #ffffff;
-  --color-bg-muted: #f4f0f2;
+  --color-bg-muted: #e8e6e1;
 
-  /* Typography */
-  --color-text-base: #4a4453;
-  --color-text-muted: #8b8396;
+  /* Typography: Deep charcoal, not harsh pure black */
+  --color-text-base: #312f2c;
+  --color-text-muted: #6b6863;
 
-  /* Pastel Accents */
-  --color-primary: #ffc4d9; /* Soft Pink */
-  --color-secondary: #d6c4ff; /* Lavender */
-  --color-tertiary: #c4e8ff; /* Baby Blue */
-  --color-success: #c4ffde; /* Mint Green */
-  --color-warning: #ffebc4; /* Butter Yellow */
+  /* Earthy, Editorial Accents */
+  --color-primary: #d97757; /* Warm Terracotta/Rust */
+  --color-secondary: #90948b; /* Muted Sage/Stone */
+  --color-tertiary: #c1a57b; /* Soft Ochre/Gold */
+  --color-success: #6c8c74; /* Natural Forest Green */
+  --color-warning: #e5a953; /* Muted Amber */
 
   /* Borders & Shadows */
-  --color-border: #eee8ed;
-  --shadow-sm: 0 2px 8px rgba(74, 68, 83, 0.05);
+  --color-border: #e2dfd8;
+  --shadow-sm: 0 2px 8px rgba(26, 25, 24, 0.06);
 }
 
 /* Dark Mode */
 :root[data-theme='dark'] {
-  /* Backgrounds */
-  --color-bg-base: #1c1924;
-  --color-bg-surface: #252230;
-  --color-bg-muted: #2f2a3d;
+  /* Backgrounds: Deep, warm grays (avoids cold blue-blacks) */
+  --color-bg-base: #1c1b1a;
+  --color-bg-surface: #262523;
+  --color-bg-muted: #33312e;
 
-  /* Typography */
-  --color-text-base: #fcfafc;
-  --color-text-muted: #a69fb0;
+  /* Typography: Soft cream/off-white */
+  --color-text-base: #eae7e0;
+  --color-text-muted: #a39f98;
 
-  /* Pastel Accents (Slightly boosted saturation for dark backgrounds) */
-  --color-primary: #ffb0cc; /* Warm Rose */
-  --color-secondary: #c5a8ff; /* Soft Violet */
-  --color-tertiary: #a8dfff; /* Clear Sky */
-  --color-success: #a8ffd1; /* Bright Mint */
-  --color-warning: #ffe1a8; /* Warm Sand */
+  /* Earthy Accents (Slightly brightened for dark mode contrast) */
+  --color-primary: #e08b6c;
+  --color-secondary: #a3a79d;
+  --color-tertiary: #d1b894;
+  --color-success: #82a38a;
+  --color-warning: #ecba71;
 
   /* Borders & Shadows */
-  --color-border: #383347;
-  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --color-border: #3d3b37;
+  --shadow-sm: 0 2px 12px rgba(0, 0, 0, 0.4);
 }
 
 * {
@@ -64,16 +68,32 @@ body,
 body {
   margin: 0;
   background-color: var(--color-bg-base);
-  font-family: var(--font-jetbrains);
+  color: var(--color-text-base);
+  /* Shifted to the clean sans-serif for standard UI readability */
+  font-family: var(--font-sans);
 }
 
 h1 {
   font-size: 8rem;
-  font-weight: bolder;
+  font-weight: 400; /* Dropped from bolder to normal for an editorial look */
   color: var(--color-text-base);
+  /* Applying the serif font to headings creates that signature Anthropic research vibe */
+  font-family: var(--font-serif);
+  letter-spacing: -0.02em; /* Slight tightening looks more sophisticated */
 }
 
-button:hover {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font-family: var(--font-serif);
+}
+
+button:hover,
+a:hover {
   cursor: pointer;
 }
 
