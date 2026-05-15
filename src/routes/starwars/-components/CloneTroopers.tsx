@@ -3,6 +3,7 @@ import genericStyles from '../starwars.module.css'
 import { ChevronRight, ChevronLeft } from 'lucide-react'
 import React, { useState, useRef } from 'react'
 import { AnimatePresence, motion, useInView } from 'motion/react'
+import RandomReveal from './RandomReveal'
 
 import trooperList from '../-data'
 
@@ -66,9 +67,25 @@ export default function CloneTroopers() {
             ></motion.div>
             <article className={styles['description-block']}>
               <div>
-                <h2>{trooper.name}</h2>
-                <h3>Commander: {trooper.commander}</h3>
-                <p>{trooper.description}</p>
+                <h2>
+                  <RandomReveal
+                    text={trooper.name}
+                    exitDuration={exitAnimDur * 2}
+                  />
+                </h2>
+                <h3>
+                  <RandomReveal
+                    text={`Commander: ${trooper.commander}`}
+                    exitDuration={exitAnimDur * 2}
+                  />
+                </h3>
+                <p>
+                  <RandomReveal
+                    text={trooper.description}
+                    duration={1.5}
+                    exitDuration={exitAnimDur * 2}
+                  />
+                </p>
               </div>
 
               <nav className={styles['buttons']}>
