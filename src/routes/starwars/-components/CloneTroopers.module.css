@@ -1,4 +1,11 @@
 .wrapper {
+  --tablet-width: 35%;
+  --divider-position: clamp(
+    30vw,
+    calc(100vw - var(--tablet-width) - 230px),
+    50vw
+  );
+
   height: 100dvh;
   height: 100vh;
   width: 100%;
@@ -14,7 +21,7 @@
 .trooper {
   position: absolute;
   bottom: 0;
-  left: 50%;
+  left: var(--divider-position);
   translate: -50% 35%;
   height: 140dvh;
   pointer-events: none;
@@ -23,7 +30,7 @@
 }
 
 .name-wrapper {
-  width: 50%;
+  width: var(--divider-position);
   position: absolute;
   bottom: 50%;
   translate: 0 50%;
@@ -42,12 +49,15 @@
 
   color: #ffffff36;
 }
-.description-block-shadow {
+
+.tablet-wrapper {
   position: absolute;
   right: 2%;
   bottom: 15%;
-  width: 35%;
+  width: var(--tablet-width);
   height: 70%;
+
+  container-type: inline-size;
 }
 
 .notch {
@@ -57,17 +67,18 @@
   width: 40%;
   height: 20%;
   position: absolute;
-  top: 2%;
+  top: 1.8cqw;
   left: 50%;
   translate: -50% 0;
 }
 
-.description-block {
+.tablet {
+  --clip-corner-size: 5cqw;
+
   width: 100%;
   height: 100%;
   padding: 10% 6%;
   padding-bottom: 4%;
-  position: absolute;
 
   background: #e0e0e0;
   box-shadow:
@@ -76,25 +87,31 @@
 
   border-radius: 0 0 25px 25px;
   clip-path: polygon(
-    38% 5%,
-    62% 5%,
+    38% var(--clip-corner-size),
+    62% var(--clip-corner-size),
     68% 0,
-    95% 0,
-    100% 5%,
+    calc(100% - var(--clip-corner-size)) 0,
+    100% var(--clip-corner-size),
     100% 100%,
     0 100%,
-    0 5%,
-    5% 0,
+    0 var(--clip-corner-size),
+    var(--clip-corner-size) 0,
     32% 0
   );
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  & > div {
-    overflow-y: scroll;
-  }
+  overflow-x: hidden;
 
+  & * {
+    font-family: var(--font-jetbrains);
+  }
+}
+
+.tablet-text {
+  overflow-y: scroll;
+  overflow-x: hidden;
   & h2 {
     font-size: 4.2rem;
     line-height: 0.8;
@@ -104,11 +121,11 @@
   }
 
   & h3 {
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgba(26, 26, 26, 0.9);
     text-transform: uppercase;
     letter-spacing: 1px;
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   & p {
@@ -116,15 +133,19 @@
     padding-right: 1rem;
     line-height: 1.6;
     color: #333;
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 }
 
 .buttons {
   width: 100%;
+
+  margin-top: auto;
+
   display: flex;
   justify-content: center;
   gap: 1rem;
+
   & button {
     width: 50px;
     height: 50px;
@@ -155,6 +176,80 @@
 
     & > * {
       color: #0000008f;
+    }
+  }
+  & .expand-button {
+    display: none;
+  }
+}
+
+@media (max-width: 1300px) {
+  .wrapper {
+    --tablet-width: 40%;
+  }
+}
+
+@media (max-width: 1100px) {
+  .tablet h2 {
+    font-size: 3.5rem;
+  }
+}
+
+/* Change layout */
+@media (max-width: 900px) {
+  .name-wrapper {
+    display: none;
+  }
+
+  .trooper {
+    left: 50%;
+  }
+
+  .tablet-wrapper {
+    left: 50%;
+    bottom: 2%;
+    translate: -50% 0;
+    z-index: 2;
+
+    width: min(500px, 90%);
+    height: 90%;
+  }
+
+  .tablet-wrapper.closed .tablet-text {
+    display: none;
+  }
+
+  .tablet-wrapper.closed,
+  .closed.tablet {
+    height: auto;
+  }
+
+  .buttons .expand-button {
+    display: inherit;
+  }
+}
+
+@media (max-width: 650px) {
+  .trooper {
+    translate: -50% 5%;
+    height: 100dvh;
+  }
+}
+
+@media (max-width: 420px) {
+  .trooper {
+    object-fit: contain;
+  }
+
+  .tablet-text {
+    & h2 {
+      font-size: 2.6rem;
+    }
+    & h3 {
+      font-size: 0.9rem;
+    }
+    & p {
+      font-size: 1rem;
     }
   }
 }

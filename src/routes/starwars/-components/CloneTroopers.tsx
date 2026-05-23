@@ -1,14 +1,15 @@
 import styles from './CloneTroopers.module.css'
 import genericStyles from '../starwars.module.css'
-import { ChevronRight, ChevronLeft } from 'lucide-react'
+import { ChevronRight, ChevronLeft, ChevronUp, ChevronDown } from 'lucide-react'
 import React, { useState, useRef } from 'react'
-import { AnimatePresence, motion, useInView } from 'motion/react'
+import { AnimatePresence, motion } from 'motion/react'
 import RandomReveal from './RandomReveal'
 
 import trooperList from '../-data'
 
 export default function CloneTroopers() {
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState<number>(0)
+  const [isMobileTabletOpen, setIsMobileTabletOpen] = useState<boolean>(false)
   const ref = useRef(null)
 
   const trooper = trooperList[selectedIndex]
@@ -50,8 +51,15 @@ export default function CloneTroopers() {
               {trooper.name}
             </motion.h2>
           </div>
+
           {/* Description Tablet */}
-          <div className={styles['description-block-shadow']}>
+          <motion.div
+            layout
+            transition={{
+              layout: { duration: 0.1 },
+            }}
+            className={`${styles['tablet-wrapper']} ${!isMobileTabletOpen && styles['closed']}`}
+          >
             <motion.div
               initial={{ y: 20 }}
               animate={{
@@ -64,8 +72,8 @@ export default function CloneTroopers() {
               }}
               className={styles['notch']}
             ></motion.div>
-            <article className={styles['description-block']}>
-              <div>
+            <article className={styles['tablet']}>
+              <div className={styles['tablet-text']}>
                 <h2>
                   <RandomReveal
                     text={trooper.name}
@@ -87,16 +95,23 @@ export default function CloneTroopers() {
                 </p>
               </div>
 
-              <nav className={styles['buttons']}>
+              <motion.nav layout className={styles['buttons']}>
                 <button onClick={() => cycleTrooper(-1)}>
                   <ChevronLeft />
+                </button>
+                <button
+                  onClick={() => setIsMobileTabletOpen(!isMobileTabletOpen)}
+                  className={styles['expand-button']}
+                >
+                  {isMobileTabletOpen ? <ChevronDown /> : <ChevronUp />}
                 </button>
                 <button onClick={() => cycleTrooper(1)}>
                   <ChevronRight />
                 </button>
-              </nav>
+              </motion.nav>
             </article>
-          </div>
+          </motion.div>
+
           {/* Clone trooper */}
           <motion.img
             initial={{ y: 1000 }}
