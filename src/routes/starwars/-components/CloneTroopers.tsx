@@ -1,22 +1,21 @@
 import styles from './CloneTroopers.module.css'
 import genericStyles from '../starwars.module.css'
 import { ChevronRight, ChevronLeft, ChevronUp, ChevronDown } from 'lucide-react'
-import React, { useState, useRef } from 'react'
+import React, { useState } from 'react'
 import { AnimatePresence, motion } from 'motion/react'
 import RandomReveal from './RandomReveal'
 
 import trooperList from '../-data'
 
+const enterTextDur = 1
+const enterTrooperDur = 0.5
+const exitAnimDur = 0.3
+
 export default function CloneTroopers() {
   const [selectedIndex, setSelectedIndex] = useState<number>(0)
   const [isMobileTabletOpen, setIsMobileTabletOpen] = useState<boolean>(false)
-  const ref = useRef(null)
 
   const trooper = trooperList[selectedIndex]
-
-  const enterTextDur = 1
-  const enterTrooperDur = 0.5
-  const exitAnimDur = 0.3
 
   function cycleTrooper(x: -1 | 1) {
     const len = trooperList.length
@@ -27,7 +26,6 @@ export default function CloneTroopers() {
   return (
     <AnimatePresence mode="wait">
       <section
-        ref={ref}
         key={trooper.id}
         className={`${styles['wrapper']} ${genericStyles['starry-sky']}`}
         style={{ '--trooper-color': trooper.color } as React.CSSProperties}
@@ -58,7 +56,7 @@ export default function CloneTroopers() {
             transition={{
               layout: { duration: 0.1 },
             }}
-            className={`${styles['tablet-wrapper']} ${!isMobileTabletOpen && styles['closed']}`}
+            className={`${styles['tablet-wrapper']} ${!isMobileTabletOpen ? styles['closed'] : ''}`}
           >
             <motion.div
               initial={{ y: 20 }}
@@ -96,16 +94,21 @@ export default function CloneTroopers() {
               </div>
 
               <motion.nav layout className={styles['buttons']}>
-                <button onClick={() => cycleTrooper(-1)}>
+                <button onClick={() => cycleTrooper(-1)} aria-label="Previous">
                   <ChevronLeft />
                 </button>
                 <button
+                  aria-label={
+                    isMobileTabletOpen
+                      ? 'Hide Trooper Details'
+                      : 'Show Trooper Details'
+                  }
                   onClick={() => setIsMobileTabletOpen(!isMobileTabletOpen)}
                   className={styles['expand-button']}
                 >
                   {isMobileTabletOpen ? <ChevronDown /> : <ChevronUp />}
                 </button>
-                <button onClick={() => cycleTrooper(1)}>
+                <button onClick={() => cycleTrooper(1)} aria-label="Next">
                   <ChevronRight />
                 </button>
               </motion.nav>
